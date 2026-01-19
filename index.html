@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe Administrativa | Mega_Pop2</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        :root {
+            --primary: #ff3e00;
+            --bg: #0d0d0f;
+            --card-bg: #16161a;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-dim: #94949b;
+        }
+
+        /* Esconde barras de rolagem chatas */
+        * { margin: 0; padding: 0; box-sizing: border-box; scrollbar-width: none; }
+        *::-webkit-scrollbar { display: none; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding: 40px 15px;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        header { 
+            margin-bottom: 40px; 
+            border-left: 5px solid var(--primary); 
+            padding: 10px 0 10px 25px;
+        }
+
+        header h1 { font-size: 1.8rem; font-weight: 800; }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+            gap: 20px;
+            align-items: start;
+        }
+
+        .member-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: visible;
+        }
+
+        .member-card:hover { border-color: rgba(255, 62, 0, 0.4); }
+
+        .member-photo {
+            width: 100%;
+            aspect-ratio: 1/1;
+            margin-bottom: 15px;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .member-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+        .member-name { font-size: 1.4rem; font-weight: 800; margin-bottom: 4px; display: block; }
+
+        .member-role {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .member-role::before { content: ''; width: 6px; height: 6px; background: var(--primary); border-radius: 50%; }
+
+        .member-bio { font-size: 0.9rem; color: var(--text-dim); }
+
+        .expansion-engine {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .member-card.open .expansion-engine {
+            grid-template-rows: 1fr;
+        }
+
+        .content-inner { overflow: hidden; }
+
+        .extra-content {
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #e2e2e7;
+        }
+
+        .atrib-label {
+            display: block;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 0.7rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .member-card.open { border-color: var(--primary); background-color: #1c1c21; }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>| Administração do [a] Xat/Rádio | <span style="color: var(--primary);">Mega_Pop2</span> |</h1>
+        </header>
+
+        <main class="team-grid">
+            <div class="member-card" onclick="toggleCard(this)">
+                <div class="member-photo"><img src="https://xatimg.com/image/89W7Tfidg1Ul.png"></div>
+                <span class="member-name">Gaby</span>
+                <span class="member-role">Diretora Geral</span>
+                <p class="member-bio">Responsável pelo Xat.</p>
+                <div class="expansion-engine">
+                    <div class="content-inner">
+                        <div class="extra-content">
+                            <b class="atrib-label">Atribuições:</b>
+                            definir o estilo, vinhetas e conteúdo da rádio, assegurando a continuidade da programação. liderar a equipe de corpo diretivo e assistente gerencial, garantindo a infraestrutura, a eficiência das tarefas e a organização através de metas e delegação de papéis. foco na qualidade da transmissão ao ouvinte, cabendo também a gestão de conduta administrativa no xat, o que inclui tratar sugestões, reclamações, promoções e coibir abusos de poder.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="toggleCard(this)">
+                <div class="member-photo"><img src="https://xatimg.com/image/xQSajbCRIu4u.jpg"></div>
+                <span class="member-name">Maresia</span>
+                <span class="member-role">Diretor Geral/Programador</span>
+                <p class="member-bio">Responsável pela Rádio.</p>
+                <div class="expansion-engine">
+                    <div class="content-inner">
+                        <div class="extra-content">
+                            <b class="atrib-label">Atribuições:</b>
+                            Programação de Rádio e Web, Manuseio dos Paineis, Elaboração e Criação de Dados Pessoais dos Djs/Locutores, Design, Tabelas, Comandos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="toggleCard(this)">
+                <div class="member-photo"><img src="https://xatimg.com/image/voEefg4z1F28.jpg"></div>
+                <span class="member-name">Love</span>
+                <span class="member-role">Diretora/Programadora</span>
+                <p class="member-bio">Responsável pela Supervisão.</p>
+                <div class="expansion-engine">
+                    <div class="content-inner">
+                        <div class="extra-content">
+                            <b class="atrib-label">Atribuições:</b>
+                            Atuar como o elo entre a rádio e o público do Xat, além de gerenciar a interação no ambiente da sala, monitorando o desempenho da audiência e o bom funcionamento de todas as estruturas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="toggleCard(this)">
+                <div class="member-photo"><img src="https://xatimg.com/image/yx1QedT4xjjF.jpg"></div>
+                <span class="member-name">Fernanda</span>
+                <span class="member-role">Diretora/Orientadora</span>
+                <p class="member-bio">Responsável em Auxiliar.</p>
+                <div class="expansion-engine">
+                    <div class="content-inner">
+                        <div class="extra-content">
+                            <b class="atrib-label">Atribuições:</b>
+                            Apoiar as atividades orientadas pelos Diretores Gerais, focada em tarefas administrativas e situações eventuais tanto de xat quanto de rádio, como tirar dúvidas, receber reclamações, e em algumas situações repassar avisos.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="member-card" onclick="toggleCard(this)">
+                <div class="member-photo"><img src="https://xatimg.com/image/UBWZuVoTdciX.png"></div>
+                <span class="member-name">Daywyson</span>
+                <span class="member-role">Assistente Gerencial</span>
+                <p class="member-bio">Responsável pelo Áudio.</p>
+                <div class="expansion-engine">
+                    <div class="content-inner">
+                        <div class="extra-content">
+                            <b class="atrib-label">Atribuições:</b>
+                            Mixar a voz com trilhas, efeitos sonoros e equalizar o som para a rádio, focado no corte, processamento e finalização de vinhetas, além de inclusão de músicas no Streaming.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            const cards = document.querySelectorAll('.member-card');
+            cards.forEach(c => {
+                if (c !== card) c.classList.remove('open');
+            });
+
+            card.classList.toggle('open');
+
+            if (card.classList.contains('open')) {
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+    </script>
+
+</body>
+</html>
